@@ -20,16 +20,36 @@ if __name__ == '__main__':
     r/gifsthatkeepon giving - neutral, again, slightly +ve sentiment
     '''
 
-    subreddits = ['AskHistorians','toastme','science','happy','aww','toptalent','upliftingnews','tipofmytongue','educationalgifs', 'gifsthatkeepongiving']
+    '''
+    humansbeingbros
+    mademesmile
+    getmotivated
+    wholesomememes
+    randomkindness
+    decidingtobebetter
+    happycryingdads
+    bettereveryloop
+    askscience
+    '''
+
+    #slightly unsure
+    '''
+    keto
+    intermittentfasting
+    fasting
+    '''
+
+    subreddits = ['AskHistorians']#,'toastme','science','happy','aww','toptalent','upliftingnews','tipofmytongue','educationalgifs', 'gifsthatkeepongiving']
+    outputfile = open('outputfile.csv','a+')
     all_comments = []
+    total_comments_written = 0
 
     for cur_subreddit in subreddits:
         subreddit = redditClient.subreddit(cur_subreddit)
 
-        top25Posts = subreddit.top(params={'t': 'all'}, limit=25)
-
+        top25posts = subreddit.top(params={'t': 'all'}, limit=25)
         
-        for submission in top25Posts:
+        for submission in top25posts:
 
             #sort comments by top
             submission.comment_sort = 'top'
@@ -47,12 +67,25 @@ if __name__ == '__main__':
                 comment.body = comment.body.replace('\n',' ')
                 all_comments.append(comment)
 
-    #put all comments in file
-    with open('outputfile.csv', 'w') as f:
-        writer = csv.writer(f,delimiter='\t')
+            #write to disk if total length >=1000
+            if len(all_comments) >= 1000:
+                writer = csv.writer(outputfile, delimiter='\t')
+                for comment in all_comments:
+                    writer.writerow([comment.body])
+                print("Wrote {0} comments".format(len(all_comments)))
+                total_comments_written += len(all_comments)
+                all_comments = []
+
+        print("Done with subreddit {0}".format(cur_subreddit))
+
+    #write remaining
+    if len(all_comments) >= 0:
+        writer = csv.writer(outputfile, delimiter='\t')
         for comment in all_comments:
             writer.writerow([comment.body])
+        print("Wrote {0} comments".format(len(all_comments)))
+        total_comments_written += len(all_comments)
 
-    print("Total comments {0}".format(len(all_comments)))
+    print("Total comments written {0}".format(total_comments_written))
 
 
