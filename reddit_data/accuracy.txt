@@ -1,0 +1,158 @@
+INFO:__main__:Evaluate the following checkpoints: ['outputs-reddit_data/checkpoint-1000', 'outputs-reddit_data/checkpoint-10000', 'outputs-reddit_data/checkpoint-11000', 'outputs-reddit_data/checkpoint-2000', 'outputs-reddit_data/checkpoint-3000', 'outputs-reddit_data/checkpoint-4000', 'outputs-reddit_data/checkpoint-5000', 'outputs-reddit_data/checkpoint-6000', 'outputs-reddit_data/checkpoint-7000', 'outputs-reddit_data/checkpoint-8000', 'outputs-reddit_data/checkpoint-9000', 'outputs-reddit_data']
+INFO:__main__:Creating features from dataset file at reddit_data/
+100%|██████████| 11320/11320 [00:12<00:00, 927.39it/s]
+INFO:__main__:Saving features into cached file reddit_data/cached_dev_bert-base-uncased_128_binary
+INFO:__main__:***** Running evaluation 1000 *****
+INFO:__main__:  Num examples = 11320
+INFO:__main__:  Batch size = 8
+Evaluating: 100%
+1415/1415 [05:41<00:00, 4.14it/s]
+INFO:__main__:***** Eval results 1000 *****
+INFO:__main__:  fn = 516
+INFO:__main__:  fp = 10
+INFO:__main__:  mcc = 0.9100358384518535
+INFO:__main__:  tn = 5958
+INFO:__main__:  tp = 4836
+
+INFO:__main__:Loading features from cached file reddit_data/cached_dev_bert-base-uncased_128_binary
+INFO:__main__:***** Running evaluation 10000 *****
+INFO:__main__:  Num examples = 11320
+INFO:__main__:  Batch size = 8
+Evaluating: 100%
+1415/1415 [05:41<00:00, 4.15it/s]
+INFO:__main__:***** Eval results 10000 *****
+INFO:__main__:  fn = 100
+INFO:__main__:  fp = 65
+INFO:__main__:  mcc = 0.9707702876206661
+INFO:__main__:  tn = 5903
+INFO:__main__:  tp = 5252
+
+INFO:__main__:Loading features from cached file reddit_data/cached_dev_bert-base-uncased_128_binary
+INFO:__main__:***** Running evaluation 11000 *****
+INFO:__main__:  Num examples = 11320
+INFO:__main__:  Batch size = 8
+Evaluating: 100%
+1415/1415 [05:41<00:00, 4.14it/s]
+INFO:__main__:***** Eval results 11000 *****
+INFO:__main__:  fn = 93
+INFO:__main__:  fp = 75
+INFO:__main__:  mcc = 0.9702296348112021
+INFO:__main__:  tn = 5893
+INFO:__main__:  tp = 5259
+
+INFO:__main__:Loading features from cached file reddit_data/cached_dev_bert-base-uncased_128_binary
+INFO:__main__:***** Running evaluation 2000 *****
+INFO:__main__:  Num examples = 11320
+INFO:__main__:  Batch size = 8
+Evaluating: 100%
+1415/1415 [05:41<00:00, 4.14it/s]
+INFO:__main__:***** Eval results 2000 *****
+INFO:__main__:  fn = 181
+INFO:__main__:  fp = 44
+INFO:__main__:  mcc = 0.9603603350987361
+INFO:__main__:  tn = 5924
+INFO:__main__:  tp = 5171
+
+INFO:__main__:Loading features from cached file reddit_data/cached_dev_bert-base-uncased_128_binary
+INFO:__main__:***** Running evaluation 3000 *****
+INFO:__main__:  Num examples = 11320
+INFO:__main__:  Batch size = 8
+Evaluating: 100%
+1415/1415 [05:41<00:00, 4.15it/s]
+INFO:__main__:***** Eval results 3000 *****
+INFO:__main__:  fn = 119
+INFO:__main__:  fp = 117
+INFO:__main__:  mcc = 0.9581793030861288
+INFO:__main__:  tn = 5851
+INFO:__main__:  tp = 5233
+
+INFO:__main__:Loading features from cached file reddit_data/cached_dev_bert-base-uncased_128_binary
+INFO:__main__:***** Running evaluation 4000 *****
+INFO:__main__:  Num examples = 11320
+INFO:__main__:  Batch size = 8
+Evaluating: 100%
+1415/1415 [05:41<00:00, 4.14it/s]
+INFO:__main__:***** Eval results 4000 *****
+INFO:__main__:  fn = 120
+INFO:__main__:  fp = 75
+INFO:__main__:  mcc = 0.9654611016078426
+INFO:__main__:  tn = 5893
+INFO:__main__:  tp = 5232
+
+INFO:__main__:Loading features from cached file reddit_data/cached_dev_bert-base-uncased_128_binary
+INFO:__main__:***** Running evaluation 5000 *****
+INFO:__main__:  Num examples = 11320
+INFO:__main__:  Batch size = 8
+Evaluating: 100%
+1415/1415 [05:41<00:00, 4.14it/s]
+INFO:__main__:***** Eval results 5000 *****
+INFO:__main__:  fn = 89
+INFO:__main__:  fp = 153
+INFO:__main__:  mcc = 0.9572047622127761
+INFO:__main__:  tn = 5815
+INFO:__main__:  tp = 5263
+
+INFO:__main__:Loading features from cached file reddit_data/cached_dev_bert-base-uncased_128_binary
+INFO:__main__:***** Running evaluation 6000 *****
+INFO:__main__:  Num examples = 11320
+INFO:__main__:  Batch size = 8
+Evaluating: 100%
+1415/1415 [05:41<00:00, 4.15it/s]
+INFO:__main__:***** Eval results 6000 *****
+INFO:__main__:  fn = 115
+INFO:__main__:  fp = 81
+INFO:__main__:  mcc = 0.9652743169994108
+INFO:__main__:  tn = 5887
+INFO:__main__:  tp = 5237
+
+INFO:__main__:Loading features from cached file reddit_data/cached_dev_bert-base-uncased_128_binary
+INFO:__main__:***** Running evaluation 7000 *****
+INFO:__main__:  Num examples = 11320
+INFO:__main__:  Batch size = 8
+Evaluating: 100%
+1415/1415 [05:41<00:00, 4.15it/s]
+INFO:__main__:***** Eval results 7000 *****
+INFO:__main__:  fn = 123
+INFO:__main__:  fp = 64
+INFO:__main__:  mcc = 0.9668970477908907
+INFO:__main__:  tn = 5904
+INFO:__main__:  tp = 5229
+
+INFO:__main__:Loading features from cached file reddit_data/cached_dev_bert-base-uncased_128_binary
+INFO:__main__:***** Running evaluation 8000 *****
+INFO:__main__:  Num examples = 11320
+INFO:__main__:  Batch size = 8
+Evaluating: 100%
+1415/1415 [05:41<00:00, 4.15it/s]
+INFO:__main__:***** Eval results 8000 *****
+INFO:__main__:  fn = 124
+INFO:__main__:  fp = 51
+INFO:__main__:  mcc = 0.9690487947763742
+INFO:__main__:  tn = 5917
+INFO:__main__:  tp = 5228
+
+INFO:__main__:Loading features from cached file reddit_data/cached_dev_bert-base-uncased_128_binary
+INFO:__main__:***** Running evaluation 9000 *****
+INFO:__main__:  Num examples = 11320
+INFO:__main__:  Batch size = 8
+Evaluating: 100%
+1415/1415 [05:41<00:00, 4.14it/s]
+INFO:__main__:***** Eval results 9000 *****
+INFO:__main__:  fn = 98
+INFO:__main__:  fp = 72
+INFO:__main__:  mcc = 0.9698782038495046
+INFO:__main__:  tn = 5896
+INFO:__main__:  tp = 5254
+
+INFO:__main__:Loading features from cached file reddit_data/cached_dev_bert-base-uncased_128_binary
+INFO:__main__:***** Running evaluation reddit_data *****
+INFO:__main__:  Num examples = 11320
+INFO:__main__:  Batch size = 8
+Evaluating: 100%
+1415/1415 [05:38<00:00, 4.18it/s]
+INFO:__main__:***** Eval results reddit_data *****
+INFO:__main__:  fn = 93
+INFO:__main__:  fp = 75
+INFO:__main__:  mcc = 0.9702296348112021
+INFO:__main__:  tn = 5893
+INFO:__main__:  tp = 5259
