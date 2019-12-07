@@ -84,8 +84,8 @@ def getProcessedComments(subreddit, count):
         response['data'] = []
         for cmt in res:
             #create dict
-            objDict = {'reddit_identifier':cmt[0], 'subreddit_name':cmt[1], 'comment_url':cmt[2], 
-            'comment_data':cmt[3], 'processing_status':cmt[4], 'user_action':cmt[5], 'prediction_probability':cmt[6], 'time':cmt[7], 'submitter_name':cmt[8], 'prediction':cmt[9], 'submitter_avatar':cmt[10]}
+            objDict = {'reddit_identifier':cmt[1], 'subreddit_name':cmt[2], 'comment_url':cmt[3], 
+            'comment_data':cmt[4], 'processing_status':cmt[5], 'user_action':cmt[6], 'prediction_probability':cmt[7], 'time':str(cmt[8]), 'submitter_name':cmt[9], 'prediction':cmt[10], 'submitter_avatar':cmt[11]}
             response['data'].append(objDict)
         response = jsonpickle.encode(response)
         return Response(response=response,status=200,mimetype='application/json')
