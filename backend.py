@@ -57,7 +57,7 @@ def getProcessedComments(subreddit, count):
     response = None
     
     sql = """select * from reddit_comments where subreddit_name = %s and user_action = 'no_action' and  processing_status = 'processed'
-        limit %s order by time desc"""
+        order by time desc limit %s """
 
     error = None
     conn = None

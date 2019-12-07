@@ -5,12 +5,13 @@ from datetime import datetime
 import psycopg2
 import requests
 import threading
+import json
 
 params = {'host':'localhost','database':'toxicity','user':'toxic','password':'toxicity'}
 redditClient = None
 subreddits = None
 lastUpdatedTime = 0.0
-bertUrl = 'http://bert:5000/toxicity?text=%'
+bertUrl = 'http://bert:5000/toxicity'
 
 class MyThread (threading.Thread):
     die = False
@@ -57,8 +58,8 @@ def processComments():
     try:    
         for comment in unprocComments:
             response = None
-            response = requests.get(bertUrl % (comment[1]))
-            predictions[comment[0]] = (json.loads(response)['toxicity'])
+            response = requests.get(bertUrl, params = { 'text': comment[1] })
+            predictions[comment[0]] = (json.loads(response.text)['toxicity'])
     except Exception as e:
         print("Error {0} occurred while computing prediction for comment".format(e))
 
@@ -76,7 +77,8 @@ def processComments():
         if conn is not None:
             conn.close()
 
-def fetchComments():    
+def fetchComments():
+    global lastUpdatedTime    
     lock = threading.RLock()
     with lock:
         sr = subreddits
@@ -115,7 +117,7 @@ if __name__=='__main__':
                     user_agent='throwawayTester_blah',
                     username='throwawayTester_blah')
 
-    subreddits = sys.argv[1]
+    subreddits = [sys.argv[1]]
     f = MyThread('fetchComments', fetchComments)
     f.start()
     s = MyThread('processComments', processComments)
