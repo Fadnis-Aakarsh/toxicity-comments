@@ -56,7 +56,7 @@ def getProcessedComments(subreddit, count):
     #return processed comment information from the DB as json
     response = None
     
-    sql = """select * from reddit_comments where subreddit_name = %s and user_action = 'no_action' and  processing_status = 'processed'
+    sql = """select * from reddit_comments where subreddit_name = %s and user_action = 'no_action' and  processing_status = 'processed' and prediction='toxic'
         order by time desc limit %s """
 
     error = None
