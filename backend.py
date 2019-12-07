@@ -76,7 +76,7 @@ def fetchComments():
     comments = []
     for subreddit in sr:
         #fetch latest 1000 comments    
-        comments += [cmt for cmt in subreddit.comments(limit=1000) if cmt.created_utc > lastUpdatedTime]
+        comments += [cmt for cmt in redditClient.subreddit(subreddit).comments(limit=1000) if cmt.created_utc > lastUpdatedTime]
 
     lastUpdatedTime = time.time()
     
