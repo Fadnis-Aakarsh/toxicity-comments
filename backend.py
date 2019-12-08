@@ -5,6 +5,8 @@ import sys
 import psycopg2
 import requests
 import threading
+import json
+import io
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -23,9 +25,9 @@ def update_db():
 
     sql = """ UPDATE reddit_comments 
                     SET user_action = %s
-                    WHERE id = %s"""
+                    WHERE reddit_identifier = %s"""
 
-    r= request
+
     conn = None
     error = None
     try:
@@ -36,9 +38,9 @@ def update_db():
         cur.execute(sql, (user_action, id))
         conn.commit()
         cur.close()
-    except(Exception, psycopg2.DatabaseError) as error:
-        print(error)
-        error = 'Error {0} occurred while updating user action {1} for comment id {2}'.format(error,user_action,id)
+    except(Exception, psycopg2.DatabaseError) as e:
+        print(e)
+        error = 'Error {0} occurred while updating user action {1} for comment id {2}'.format(e,user_action,id)
     finally:
         if conn is not None:
             conn.close()
@@ -84,7 +86,7 @@ def getProcessedComments(subreddit, count):
         response['data'] = []
         for cmt in res:
             #create dict
-            objDict = {'reddit_identifier':cmt[1], 'subreddit_name':cmt[2], 'comment_url':cmt[3], 
+            objDict = {'reddit_identifier':cmt[1], 'subreddit_name':cmt[2], 'comment_url':'https://www.reddit.com'+cmt[3], 
             'comment_data':cmt[4], 'processing_status':cmt[5], 'user_action':cmt[6], 'prediction_probability':cmt[7], 'time':str(cmt[8]), 'submitter_name':cmt[9], 'prediction':cmt[10], 'submitter_avatar':cmt[11]}
             response['data'].append(objDict)
         response = jsonpickle.encode(response)
@@ -92,7 +94,7 @@ def getProcessedComments(subreddit, count):
 
 # start flask app
 if __name__=='__main__':
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5001)
 
 """
 
